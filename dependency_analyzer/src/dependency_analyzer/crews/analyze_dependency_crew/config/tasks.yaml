@@ -1,0 +1,6 @@
+analyze_dependencies:
+  description: >
+    Analyze the dependencies and find if any security vulnerability exists in any of the dependencies specified in {json_file}.
+  expected_output: >
+    Find if any security vulnerability exists in any of the dependencies specified in {json_file}.
+  agent: analyze_dependency_agent

@@ -1,0 +1,6 @@
+update_dependencies:
+  description: >
+    Update the dependencies where security vulnerability is found, to the latest version.
+  expected_output: >
+    Update dependencies to the latest version and return the json content only.
+  agent: update_dependency_agent
