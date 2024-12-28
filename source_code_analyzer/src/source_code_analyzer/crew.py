@@ -9,8 +9,8 @@ from crewai_tools import (
 
 # Instantiate tools
 directory_path = input("Please enter the directory path: ")
-docs_tool = DirectoryReadTool(directory=directory_path,)
-file_tool = FileReadTool()
+docs_tool = DirectoryReadTool(directory=directory_path)
+file_tool = FileReadTool(directory=directory_path)
 
 @CrewBase
 class SourceCodeAnalyzer():
