@@ -1,6 +1,7 @@
 security_analysis_task:
   description: >
-    Conduct a thorough research about each of the source code files directory and identify the critical security issues.
+    Conduct a thorough research about each of the source code files in the input directory and identify the critical security issues.
   expected_output: >
-    A list with 10 bullet points of the most critical security issues found in each of the source code files within the directory.
+    A list with bullet points of the most security issues found in each of the source code files in the input directory.
+    List those security issues if exists in each files along with the file names in the order of their severity.
   agent: security_expert
