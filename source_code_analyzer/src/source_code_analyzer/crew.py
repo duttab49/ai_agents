@@ -2,15 +2,15 @@ from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 
 # Importing crewAI tools
-from crewai_tools import (
-    DirectoryReadTool,
-    FileReadTool
-)
+# from crewai_tools import (
+#     DirectoryReadTool,
+#     FileReadTool
+# )
 
 # Instantiate tools
-directory_path = input("Please enter the directory path: ")
-docs_tool = DirectoryReadTool(directory=directory_path)
-file_tool = FileReadTool(directory=directory_path)
+# directory_path = input("Please enter the directory path: ")
+# docs_tool = DirectoryReadTool(directory=directory_path)
+# file_tool = FileReadTool(directory=directory_path)
 
 @CrewBase
 class SourceCodeAnalyzer():
@@ -19,12 +19,16 @@ class SourceCodeAnalyzer():
 	agents_config = 'config/agents.yaml'
 	tasks_config = 'config/tasks.yaml'
 
+	def __init__(self, docs_tool=None, file_tool=None):
+		self.docs_tool = docs_tool
+		self.file_tool = file_tool
+
 	@agent
 	def security_expert(self) -> Agent:
 		return Agent(
 			config=self.agents_config['security_expert'],
 			llm='ollama/llama3.2',
-			tools=[docs_tool, file_tool],
+			tools=[self.docs_tool, self.file_tool],
 			verbose=True
 		)
 
